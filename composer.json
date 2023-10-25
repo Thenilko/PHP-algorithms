@@ -1,0 +1,14 @@
+{
+    "name": "thenilko/php-algorithms",
+    "description": "Thenilko Simple project",
+    "type": "project",
+    "version": "1.0.1",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
