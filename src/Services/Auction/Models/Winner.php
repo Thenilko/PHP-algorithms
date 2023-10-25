@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Auction\Model;
+namespace App\Services\Auction\Models;
 
 /**
  * Created by PhpStorm.

@@ -2,8 +2,8 @@
 require 'vendor/autoload.php';
 
 use App\Services\Auction\Auction;
-use App\Services\Auction\Bidder;
 use App\Services\Auction\Checks\PriceCheck;
+use App\Services\Auction\Entities\Bidder;
 use App\Services\Auction\Exceptions\AuctionExceptions;
 
 // we create a new Auction instance. with required param reservePrice.

@@ -2,6 +2,8 @@
 
 namespace App\Services\Auction;
 
+use App\Services\Auction\Entities\Bidder;
+
 /**
  * Created by PhpStorm.
  * User: Danail Simeonov

@@ -3,9 +3,9 @@
 namespace App\Services\Auction\Checks;
 
 use App\Services\Auction\Auction;
-use App\Services\Auction\Bidder;
+use App\Services\Auction\Entities\Bidder;
 use App\Services\Auction\Exceptions\WinnerNotFoundException;
-use App\Services\Auction\Model\Winner;
+use App\Services\Auction\Models\Winner;
 
 /**
  * Created by PhpStorm.

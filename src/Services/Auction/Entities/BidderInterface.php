@@ -6,7 +6,7 @@
  * Time: 14:20
  */
 
-namespace App\Services\Auction;
+namespace App\Services\Auction\Entities;
 
 interface BidderInterface
 {
