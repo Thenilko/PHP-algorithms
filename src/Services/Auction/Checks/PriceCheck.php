@@ -4,6 +4,7 @@ namespace App\Services\Auction\Checks;
 
 use App\Services\Auction\Auction;
 use App\Services\Auction\Entities\Bidder;
+use App\Services\Auction\Exceptions\MultipleWinnersFoundedException;
 use App\Services\Auction\Exceptions\WinnerNotFoundException;
 use App\Services\Auction\Models\Winner;
 
@@ -22,10 +23,12 @@ class PriceCheck implements AuctionCheckInterface
     /**
      * @inheritDoc
      * @throws WinnerNotFoundException
+     * @throws MultipleWinnersFoundedException
      */
     public function findWinner(): Winner
     {
         $winner = null;
+        $highestBids = [];
         $winningPrice = $this->auction->reservePrice;
         $bidders = $this->auction->bidders;
 
@@ -42,7 +45,7 @@ class PriceCheck implements AuctionCheckInterface
 
             //taking the biggest bid.
             $highestBid = $bidder->getHighestBid();
-
+            $highestBids[] = $highestBid;
             $lastOffer = $totalBidders === $currentCountOfBidder;
             //if he has bigger bid and it`s not last
             //offer we save the winner name and winning price
@@ -55,10 +58,30 @@ class PriceCheck implements AuctionCheckInterface
             }
         }
 
+        if ($this->hasDuplicateValues($highestBids)) {
+            throw new MultipleWinnersFoundedException();
+        }
+
         if (null !== $winner) {
             return (new Winner())->setName($winner)->setWinningBid($winningPrice);
         }
 
         throw new WinnerNotFoundException();
+    }
+
+    /**
+     * @param array $array
+     * @return bool
+     * @author Danail Simeonov <dsimeonov@parachut.com>
+     */
+    private function hasDuplicateValues(array $array): bool
+    {
+        $countValues = array_count_values($array);
+        foreach ($countValues as $count) {
+            if ($count >= 2) {
+                return true;
+            }
+        }
+        return false;
     }
 }

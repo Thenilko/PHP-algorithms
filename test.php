@@ -13,7 +13,7 @@ $auction = new Auction(100);
 $bidsData = [
     [
         'name' => 'A',
-        'bids' => [110, 130]
+        'bids' => [110, 140]
     ],
     [
         'name' => 'B',

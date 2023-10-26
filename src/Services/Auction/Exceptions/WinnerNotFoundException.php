@@ -8,11 +8,8 @@
 
 namespace App\Services\Auction\Exceptions;
 
-use JetBrains\PhpStorm\Pure;
-
 class WinnerNotFoundException extends AuctionExceptions
 {
-    #[Pure]
     public function __construct($message = "Winner not found!", $code = 0, \Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
