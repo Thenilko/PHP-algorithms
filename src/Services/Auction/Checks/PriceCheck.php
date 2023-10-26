@@ -58,10 +58,12 @@ class PriceCheck implements AuctionCheckInterface
             }
         }
 
-        if ($this->hasDuplicateValues($highestBids)) {
+        //see for multiple winners
+        if ($this->hasMultipleWinners($highestBids)) {
             throw new MultipleWinnersFoundedException();
         }
 
+        //if the winner is found we create winner object
         if (null !== $winner) {
             return (new Winner())->setName($winner)->setWinningBid($winningPrice);
         }
@@ -74,7 +76,7 @@ class PriceCheck implements AuctionCheckInterface
      * @return bool
      * @author Danail Simeonov <dsimeonov@parachut.com>
      */
-    private function hasDuplicateValues(array $array): bool
+    private function hasMultipleWinners(array $array): bool
     {
         $countValues = array_count_values($array);
         foreach ($countValues as $count) {
