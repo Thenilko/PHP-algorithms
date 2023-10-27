@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Danail Simeonov - dsimeonov@parachut.com
+ * User: Danail Simeonov
  * Date: 26.10.23
  * Time: 15:28
  */

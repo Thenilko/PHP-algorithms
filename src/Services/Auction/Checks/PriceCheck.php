@@ -74,7 +74,7 @@ class PriceCheck implements AuctionCheckInterface
     /**
      * @param array $array
      * @return bool
-     * @author Danail Simeonov <dsimeonov@parachut.com>
+     * @author Danail Simeonov
      */
     private function hasMultipleWinners(array $array): bool
     {
