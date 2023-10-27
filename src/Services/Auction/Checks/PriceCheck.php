@@ -3,7 +3,7 @@
 namespace App\Services\Auction\Checks;
 
 use App\Services\Auction\Auction;
-use App\Services\Auction\Entities\Bidder;
+use App\Services\Auction\Entity\Bidder;
 use App\Services\Auction\Exceptions\MultipleWinnersFoundedException;
 use App\Services\Auction\Exceptions\WinnerNotFoundException;
 use App\Services\Auction\Models\Winner;

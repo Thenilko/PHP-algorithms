@@ -2,7 +2,7 @@
 
 namespace App\Services\Auction;
 
-use App\Services\Auction\Entities\Bidder;
+use App\Services\Auction\Entity\Bidder;
 
 /**
  * Created by PhpStorm.
