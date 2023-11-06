@@ -2,8 +2,8 @@
 require 'vendor/autoload.php';
 
 use App\Services\Auction\Auction;
+use App\Services\Auction\AuctionManager;
 use App\Services\Auction\Checks\PriceCheck;
-use App\Services\Auction\Entity\Bidder;
 use App\Services\Auction\Exceptions\AuctionExceptions;
 
 // we create a new Auction instance. with required param reservePrice.
@@ -33,16 +33,9 @@ $bidsData = [
     ]
 ];
 
-// iterate through bids to create Bidder class which holds name and bids.
-foreach ($bidsData as $bidData) {
-    $bidder = new Bidder($bidData['name']);
-    if (count($bidData['bids'])) {
-        foreach ($bidData['bids'] as $bid) {
-            $bidder->addBid($bid);
-        }
-    }
-    $auction->addBidder($bidder);
-}
+$auctionManager = new AuctionManager();
+$auctionManager->createBuidders($bidsData, $auction);
+
 // we initiate PriceCheck and pass already created auction with the bidders.
 $check = new PriceCheck($auction);
 

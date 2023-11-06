@@ -1,0 +1,1 @@
+{"version":1,"defects":{"AuctionTest::testAuctionFailed":4,"AuctionTest::testAuctionNoWinner":3},"times":{"AuctionTest::testAuction":0.004,"AuctionTest::testAuctionOk":0.005,"AuctionTest::testAuctionFailed":0,"AuctionTest::testAuctionMultipleWinners":0.001,"AuctionTest::testAuctionNoWinner":0}}
